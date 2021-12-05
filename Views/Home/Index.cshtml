@@ -9,8 +9,20 @@
 <head>
     <meta name="viewport" content="width=device-width" />
     <title>Welcome to book store application</title>
+    <link href="~/css/site.css" rel="stylesheet" />
 </head>
 <body>
     <h1>Welcome to book store</h1>
+    <h1>@DateTime.Now.ToString("dd-M-yy")</h1>
+    <h1>sum = @(6+7)</h1>
+
+    @{
+        int a = 4;
+        int b = 5;
+        int c = a + b;
+    }
+    <h1>@c</h1>
+    <img src="~/images/logo.png" class="logo" alt="logo" />
+    <img src="~/MyStaticFiles/dummy.png" class="logo" alt="dummy"/>
 </body>
 </html>
