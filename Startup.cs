@@ -34,36 +34,20 @@ namespace BookStore
             {
                 app.UseDeveloperExceptionPage();
             }
-            else
-            {
-                app.UseExceptionHandler("/Error");
-            }
 
-            app.UseStaticFiles();
+           // app.UseStaticFiles();
 
             app.UseRouting();
 
-            app.UseAuthorization();
-             
+            //app.UseAuthorization();
+
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapDefaultControllerRoute();
-                // {
-                     //if (env.IsDevelopment())
-                     //{
-                     //    await context.Response.WriteAsync("Hello from Dev");
-                     //}
-                     //else if (env.IsProduction())
-                     //{
-                     //    await context.Response.WriteAsync("Hello from Prod");
-                     //}
-                     //else if (env.IsStaging())
-                     //{
-                     //    await context.Response.WriteAsync("Hello from Stag");
-                     //}
-                     //else
-                      //   await context.Response.WriteAsync(env.EnvironmentName);
-                // });
+                //    endpoints.MapControllerRoute(
+                //            name: "default",
+                //            pattern: "{controller=Home}/{action=Index}/{id?}");
+                //});
             });
         }
     }

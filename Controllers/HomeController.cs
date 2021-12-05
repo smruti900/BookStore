@@ -6,11 +6,16 @@ using System.Threading.Tasks;
 
 namespace BookStore.Controllers
 {
-    public class HomeController: Controller
+    public class HomeController : Controller
     {
-     public string Index()
+        public ViewResult Index()
         {
-            return "Index page";
-        }   
+            return View();
+        }
+
+        public ViewResult Aboutus()
+        {
+            return View();
+        }
     }
 }
