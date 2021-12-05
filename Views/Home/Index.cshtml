@@ -10,6 +10,7 @@
     <meta name="viewport" content="width=device-width" />
     <title>Welcome to book store application</title>
     <link href="~/css/site.css" rel="stylesheet" />
+    <link href="~/lib/twitter-bootstrap/css/bootstrap.css" rel="stylesheet" />
 </head>
 <body>
     <h1>Welcome to book store</h1>
@@ -23,6 +24,13 @@
     }
     <h1>@c</h1>
     <img src="~/images/logo.png" class="logo" alt="logo" />
-    <img src="~/MyStaticFiles/dummy.png" class="logo" alt="dummy"/>
+
+    <input type="button" value="click me" class="btn btn-danger" />
 </body>
+<script src="~/lib/jquery/jquery.js"></script>
 </html>
+<script>
+    $(document).ready(function () {
+        alert("page loading");
+    });
+</script>
