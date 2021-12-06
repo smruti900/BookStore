@@ -36,6 +36,10 @@ namespace BookStore
             {
                 app.UseDeveloperExceptionPage();
             }
+            else
+            {
+                app.UseExceptionHandler("/Home/Error");
+            }
 
             app.UseStaticFiles();
             //app.UseStaticFiles(new StaticFileOptions()

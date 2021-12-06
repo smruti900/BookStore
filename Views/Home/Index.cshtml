@@ -2,7 +2,14 @@
 @{
     Layout = "_Layout";
 }
-
+@section breadcrumb{
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="#">Home</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Index</li>
+        </ol>
+    </nav>
+}
 
 <section class="jumbotron text-center">
     <div class="container">
@@ -15,6 +22,12 @@
             <a href="#" class="btn btn-primary my-2">Search books</a>
         </p>
     </div>
-</section>   
+</section>
 
-   
+@section scripts{
+    <script>
+        $(document).ready(function () {
+            /*alert("document is loading");*/
+        })
+    </script>
+}

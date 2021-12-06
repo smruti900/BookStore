@@ -8,6 +8,7 @@
     <link href="~/lib/twitter-bootstrap/css/bootstrap.css" rel="stylesheet" />
 </head>
 <body>
+
     <header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
             <div class="container">
@@ -25,11 +26,11 @@
                             <a class="btn btn-outline-primary">Login</a>
                             <a class="btn btn-primary">Register</a>
                         </li>
-                        </ul>
+                    </ul>
                     <ul class="navbar-nav flex-grow-1">
                         <li class="nav-item">
-                           
-                                <a class="nav-link text-dark" href="/">Home</a>
+
+                            <a class="nav-link text-dark" href="/">Home</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link text-dark" href="/home/aboutus">About</a>
@@ -45,15 +46,19 @@
             </div>
         </nav>
     </header>
+    @RenderSection("breadcrumb", required: false)
    
-        <main role="main">
-            @RenderBody()
-        </main>
-        <footer class="border-top footer text-muted text-center">
-            <div class="container">
-                copyright &copy; Book Store @DateTime.Now.Year
-            </div>
-        </footer>
-   
+    <main role="main">
+        @RenderBody()
+    </main>
+    <footer class="border-top footer text-muted text-center">
+        <div class="container">
+            copyright &copy; Book Store @DateTime.Now.Year
+        </div>
+    </footer>
+
+    <script src="~/lib/jquery/jquery.js"></script>
+
+    @RenderSection("scripts", required: false)
 </body>
 </html>
