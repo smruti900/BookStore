@@ -1,4 +1,6 @@
-﻿@using BookStore.Model;
+﻿@{
+    ViewData["Title"] = "Book Details " + Model.Title;
+}
 @model BookModel
 
 
@@ -16,19 +18,19 @@
                     <div class="carousel-item active">
                         <img src="~/images/books/java_book.jpg" class="d-block w-100" alt="...">
                         <div class="carousel-caption d-none d-md-block">
-                            
+
                         </div>
                     </div>
                     <div class="carousel-item">
                         <img src="~/images/books/mvc_book.jpg" class="d-block w-100" alt="...">
                         <div class="carousel-caption d-none d-md-block">
-                           
+
                         </div>
                     </div>
                     <div class="carousel-item">
                         <img src="~/images/books/php_book.jpg" class="d-block w-100" alt="...">
                         <div class="carousel-caption d-none d-md-block">
-                            
+
                         </div>
                     </div>
                 </div>
@@ -66,7 +68,7 @@
                     <button class="btn btn-outline-primary">Read now</button>
                 </div>
             </div>
-            <hr/>
+            <hr />
             <ul class="list-group">
                 <li class="list-group-item"><span class="font-weight-bold">Category - </span>@Model.Category</li>
                 <li class="list-group-item"><span class="font-weight-bold">Total Pages - </span>@Model.TotalPages</li>
@@ -74,29 +76,29 @@
             </ul>
         </div>
     </div>
-    <hr/>
+    <hr />
     <div class="py-5 bg-light">
         <div class="container">
             <h3 class="h3">Similar books</h3>
-        
+
             <div class="row">
                 @for (int i = 0; i < 8; i++)
                 {
-                    <div class="col mb-4">
-                        <div class="card mb-4 shadow-sm">
-                            <svg class="bd-placeholder-img card-img-top" width="100%" height="225" ></svg>
-                            <div class="card-body">
-                                <h5 class="card-title">book.Title</h5>
-                                <p class="card-text">book.Description</p>
-                                <div class="d-flex justify-content-between align-items-center">
-                                    <div class="btn-group">
-                                        <a href="/book/getbook/book.Id" class="btn btn-sm btn-outline-secondary">View Details</a>
-                                    </div>
-                                    <small class="text-muted">book.Author</small>
+                <div class="col mb-4">
+                    <div class="card mb-4 shadow-sm">
+                        <svg class="bd-placeholder-img card-img-top" width="100%" height="225"></svg>
+                        <div class="card-body">
+                            <h5 class="card-title">book.Title</h5>
+                            <p class="card-text">book.Description</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div class="btn-group">
+                                    <a href="/book/getbook/book.Id" class="btn btn-sm btn-outline-secondary">View Details</a>
                                 </div>
+                                <small class="text-muted">book.Author</small>
                             </div>
                         </div>
                     </div>
+                </div>
 
                 }
             </div>

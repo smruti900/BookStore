@@ -1,6 +1,10 @@
-﻿@{ 
+﻿@*@{ 
     dynamic data = ViewBag.Data;
-}
+}*@
+@{
+    var bookinfo = ViewData["book"] as BookModel;
+    //ViewData["Title"] = "Home";
+ }
 @section breadcrumb{
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
@@ -12,11 +16,13 @@
 
 <section class="jumbotron text-center">
     <div class="container">
-        <h1>Welcome to Bookstore @ViewBag.Title</h1>
+        <h1>Welcome to Bookstore @ViewData["CustomProperty"]</h1>
+        @bookinfo.Id
+        @bookinfo.Author
         <p class="lead text-muted">
-            @data.Id @data.Name <br />
+            @*@data.Id @data.Name <br />
             @ViewBag.Type.Id<br />
-            @ViewBag.Type.Author
+            @ViewBag.Type.Author*@
 
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
             quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
