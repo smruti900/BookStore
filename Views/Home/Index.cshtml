@@ -16,6 +16,13 @@
 
 <section class="jumbotron text-center">
     <div class="container">
+        @*<environment include="Development">
+            <h3>Development</h3>
+        </environment>
+        <environment exclude="Development">
+            <h3>Production</h3>
+        </environment>*@
+
         <h1>Welcome to Bookstore @ViewData["CustomProperty"]</h1>
         @bookinfo.Id
         @bookinfo.Author

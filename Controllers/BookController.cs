@@ -20,12 +20,13 @@ namespace BookStore.Controllers
             _bookrepository = new BookRepository();
 
         }
+        
         public ViewResult GetAllBooks()
         {
             var data = _bookrepository.GetAllBooks();
             return View(data);
         }
-
+        [Route("book-details/{id}",Name ="bookdetailsroute")]
         public ViewResult GetBook(int id)
         {
             //return _bookrepository.GetBookById(id);
