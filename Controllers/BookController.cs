@@ -21,9 +21,9 @@ namespace BookStore.Controllers
 
         }
         
-        public ViewResult GetAllBooks()
+        public async Task<ViewResult> GetAllBooks()
         {
-            var data = _bookrepository.GetAllBooks();
+            var data = await _bookrepository.GetAllBooks();
             return View(data);
         }
         [Route("book-details/{id}",Name ="bookdetailsroute")]
