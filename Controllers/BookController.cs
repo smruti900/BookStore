@@ -15,9 +15,9 @@ namespace BookStore.Controllers
         //    return View();
         //}
         private readonly BookRepository _bookrepository = null;
-        public BookController()
+        public BookController(BookRepository bookRepository)
         {
-            _bookrepository = new BookRepository();
+            _bookrepository = bookRepository;
 
         }
         
@@ -37,13 +37,20 @@ namespace BookStore.Controllers
         {
             return _bookrepository.SearchBook(BookName,AutherName);
         }
-        public ViewResult AddNewBook()
+        public ViewResult AddNewBook(bool issuccess=false,int bookId=0)
         {
+            ViewBag.IsSuccess = issuccess;
+            ViewBag.BookId = bookId;
             return View();
         }
         [HttpPost]
-        public ViewResult AddNewBook(BookModel bookmodel)
+        public IActionResult AddNewBook(BookModel bookmodel)
         {
+            int id= _bookrepository.AddNewBook(bookmodel);
+            if (id > 0)
+            {
+                return RedirectToAction(nameof(AddNewBook),new { issuccess=true , bookId=id});
+            }
             return View();
         }
     }
