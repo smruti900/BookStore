@@ -8,12 +8,12 @@ namespace BookStore.Model
 {
     public class BookModel
     {
-        [DataType(DataType.EmailAddress)]
-        [Display(Name="choose Email Address")]
-        [EmailAddress]
-        public string MyField { get; set; }
+        //[DataType(DataType.EmailAddress)]
+        //[Display(Name="choose Email Address")]
+        //[EmailAddress]
+        //public string MyField { get; set; }
         public int Id { get; set; }
-        [StringLength(100,MinimumLength =5)]
+        [StringLength(100)]
         [Required(ErrorMessage = "Please enter the Title")]
         public string Title { get; set; }
         [Required(ErrorMessage = "Please enter the Description")]
@@ -22,7 +22,7 @@ namespace BookStore.Model
         public string Description { get; set; }
 
         public string Category { get; set; }
-
+        [Required(ErrorMessage ="Please choose the language")]
         public string Language { get; set; }
         [Required(ErrorMessage = "Please enter the Total Page")]
         [Display(Name ="Total Pages of the book")]
