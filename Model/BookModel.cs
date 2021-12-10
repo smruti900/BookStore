@@ -8,6 +8,10 @@ namespace BookStore.Model
 {
     public class BookModel
     {
+        [DataType(DataType.EmailAddress)]
+        [Display(Name="choose Email Address")]
+        [EmailAddress]
+        public string MyField { get; set; }
         public int Id { get; set; }
         [StringLength(100,MinimumLength =5)]
         [Required(ErrorMessage = "Please enter the Title")]
