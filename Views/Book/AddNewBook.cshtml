@@ -2,6 +2,7 @@
 
 @{ 
     ViewData["Title"] = "Add New Books";
+    
 }
 <div class="container">
     <h3 class="display-4">AddNewBook</h3>
@@ -18,11 +19,12 @@
     <div asp-validation-summary="ModelOnly" class="text-danger"></div>
     <div class="form-group">
         <label asp-for="Language"></label>
-        <select asp-for="Language" class="form-control">
-            <option value="">Please choose language</option>
+        <select asp-for="Language" class="form-control" asp-items="ViewBag.Language">
+            <option value=""> Please choose your Language</option>
+            @*<option value="">Please choose language</option>
             <option value="English">English (Global Language)</option>
             <option value="Hindi">Hindi (Most used language)</option>
-            <option value="Urdu">Urdu (my custom language)</option>
+            <option value="Urdu">Urdu (my custom language)</option>*@
         </select>
         <span asp-validation-for="Language" class="text-danger"></span>
     </div>

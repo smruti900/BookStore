@@ -1,6 +1,7 @@
 ﻿using BookStore.Model;
 using BookStore.Repository;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -41,8 +42,10 @@ namespace BookStore.Controllers
         {
             var model = new BookModel()
             {
-                Language="English"
+                Language = "2"
             };
+
+            ViewBag.Language =new SelectList(GetLanguage(),"Id","Text");
             ViewBag.IsSuccess = issuccess;
             ViewBag.BookId = bookId;
             return View(model);
@@ -60,9 +63,20 @@ namespace BookStore.Controllers
             }
             //ViewBag.IsSuccess = false;
             //ViewBag.BookId = 0;
-
-            ModelState.AddModelError("", "This is my custom error message");
+            //ViewBag.Language = new SelectList(new List<string>() { "English", "Hindi", "French" });
+            ViewBag.Language = new SelectList(GetLanguage(), "Id", "Text");
+            //ModelState.AddModelError("", "This is my custom error message");
             return View();
+        }
+
+        private List<LanguageModel> GetLanguage()
+        {
+            return new List<LanguageModel>()
+            {
+                new LanguageModel(){Id=1,Text="English"},
+                new LanguageModel(){Id=2,Text="Hindi"},
+                new LanguageModel(){Id=3,Text="French"}
+            };
         }
     }
 }
