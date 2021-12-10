@@ -23,7 +23,7 @@ namespace BookStore.Repository
                 CreatedOn = DateTime.UtcNow,
                 Description = model.Description,
                 Title = model.Title,
-                TotalPages = model.TotalPages,
+                TotalPages = model.TotalPages.HasValue ? model.TotalPages.Value :0,
                 UpdateOn = DateTime.UtcNow
             };
             await _context.Books.AddAsync(newBook);
@@ -54,9 +54,25 @@ namespace BookStore.Repository
             }
             return books;
         }
-        public BookModel GetBookById(int id)
+        public async Task<BookModel> GetBookById(int id)
         {
-            return DataSource().Where(x => x.Id == id).FirstOrDefault();
+            var book = await _context.Books.FindAsync(id);
+            if (book != null)
+            {
+                var bookDetails = new BookModel()
+                {
+                    Author = book.Author,
+                    Category = book.Category,
+                    Description = book.Description,
+                    Id = book.Id,
+                    Title = book.Title,
+                    TotalPages = book.TotalPages,
+                    Language = book.Language
+                };
+                return bookDetails;
+            }
+            return null;
+            //return _context.Books.Where(x => x.Id == id).FirstOrDefaultAsync();
         }
         public List<BookModel> SearchBook(string title,string authorname)
         {
