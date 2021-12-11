@@ -51,19 +51,15 @@ namespace BookStore.Controllers
             //    Text = x.Text,
             //    Value = x.Id.ToString()
             //}).ToList();
-            var group1 = new SelectListGroup() { Name = "Group 1" };
-            var group2 = new SelectListGroup() { Name = "Group 2" , Disabled=true};
-            var group3 = new SelectListGroup() { Name = "Group 3" };
-            var group4 = new SelectListGroup() { Name = "Group 4" };
             ViewBag.Language = new List<SelectListItem>()
             {
-                new SelectListItem(){Text="English",Value="1",Group=group1},
-                new SelectListItem(){Text="Hindi",Value="2",Group=group2},
-                new SelectListItem(){Text="Urdu",Value="3",Group=group3},
-                new SelectListItem(){Text="French",Value="3",Group=group3},
-                new SelectListItem(){Text="Chinese",Value="4",Group=group4},
-                new SelectListItem(){Text="Tamil",Value="4",Group=group4},
-                new SelectListItem(){Text="Dutch",Value="1",Group=group1}
+                new SelectListItem(){Text="English",Value="1"},
+                new SelectListItem(){Text="Hindi",Value="2"},
+                new SelectListItem(){Text="Urdu",Value="3"},
+                new SelectListItem(){Text="French",Value="4"},
+                new SelectListItem(){Text="Chinese",Value="5"},
+                new SelectListItem(){Text="Tamil",Value="6"},
+                new SelectListItem(){Text="Dutch",Value="7"}
             };
             ViewBag.IsSuccess = issuccess;
             ViewBag.BookId = bookId;
@@ -83,7 +79,24 @@ namespace BookStore.Controllers
             //ViewBag.IsSuccess = false;
             //ViewBag.BookId = 0;
             //ViewBag.Language = new SelectList(new List<string>() { "English", "Hindi", "French" });
-            ViewBag.Language = new SelectList(GetLanguage(), "Id", "Text");
+
+            //ViewBag.Language = new SelectList(GetLanguage(), "Id", "Text");
+
+            //var group1 = new SelectListGroup() { Name = "Group 1" };
+            //var group2 = new SelectListGroup() { Name = "Group 2", Disabled = true };
+            //var group3 = new SelectListGroup() { Name = "Group 3" };
+            //var group4 = new SelectListGroup() { Name = "Group 4" };
+            ViewBag.Language = new List<SelectListItem>()
+            {
+                new SelectListItem(){Text="English",Value="1"},
+                new SelectListItem(){Text="Hindi",Value="2"},
+                new SelectListItem(){Text="Urdu",Value="3"},
+                new SelectListItem(){Text="French",Value="4"},
+                new SelectListItem(){Text="Chinese",Value="5"},
+                new SelectListItem(){Text="Tamil",Value="6"},
+                new SelectListItem(){Text="Dutch",Value="7"}
+            };
+
             //ModelState.AddModelError("", "This is my custom error message");
             return View();
         }
