@@ -18,5 +18,6 @@ namespace BookStore.Data
         //    optionsBuilder.UseSqlServer("server=\SQLEXPRESS;Database=BookStore;Integrated Security=True;");
         //    base.OnConfiguring(optionsBuilder);
         //}
+        public DbSet<Language> Language { get; set; }
     }
 }

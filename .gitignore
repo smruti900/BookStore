@@ -367,3 +367,5 @@ FodyWeavers.xsd
 /Migrations/20211208185508_add2columns.Designer.cs
 /Migrations/20211208185508_add2columns.cs
 /Migrations/20211208184340_init.Designer.cs
+/Migrations/20211211173021_AddedLanguageTable.cs
+/Migrations/20211211173021_AddedLanguageTable.Designer.cs

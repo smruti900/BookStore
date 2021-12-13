@@ -16,9 +16,11 @@ namespace BookStore.Controllers
         //    return View();
         //}
         private readonly BookRepository _bookrepository = null;
-        public BookController(BookRepository bookRepository)
+        private readonly LanguageRepository _languagerepository = null;
+        public BookController(BookRepository bookRepository,LanguageRepository languageRepository)
         {
             _bookrepository = bookRepository;
+            _languagerepository = languageRepository;
 
         }
         
@@ -38,7 +40,7 @@ namespace BookStore.Controllers
         {
             return _bookrepository.SearchBook(BookName,AutherName);
         }
-        public ViewResult AddNewBook(bool issuccess=false,int bookId=0)
+        public async Task<ViewResult> AddNewBook(bool issuccess=false,int bookId=0)
         {
             var model = new BookModel()
             {
@@ -51,6 +53,8 @@ namespace BookStore.Controllers
             //    Text = x.Text,
             //    Value = x.Id.ToString()
             //}).ToList();
+
+            ViewBag.Language = new SelectList(await _languagerepository.GetLanguage(),"Id","Name");
 
 
 
@@ -105,20 +109,20 @@ namespace BookStore.Controllers
             //    new SelectListItem(){Text="Dutch",Value="7"}
             //};
 
-
+            ViewBag.Language = new SelectList(await _languagerepository.GetLanguage(), "Id", "Name");
 
             //ModelState.AddModelError("", "This is my custom error message");
             return View();
         }
 
-        private List<LanguageModel> GetLanguage()
-        {
-            return new List<LanguageModel>()
-            {
-                new LanguageModel(){Id=1,Text="English"},
-                new LanguageModel(){Id=2,Text="Hindi"},
-                new LanguageModel(){Id=3,Text="French"}
-            };
-        }
+        //private List<LanguageModel> GetLanguage()
+        //{ 
+        //    return new List<LanguageModel>()
+        //    {
+        //        new LanguageModel(){Id=1,Text="English"},
+        //        new LanguageModel(){Id=2,Text="Hindi"},
+        //        new LanguageModel(){Id=3,Text="French"}
+        //    };
+        //}
     }
 }
